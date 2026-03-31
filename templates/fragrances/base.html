@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>{% block title %}VICTNOW - Luxury Fragrances{% endblock %}</title>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=9.1">
+    
+    <!-- Custom Navbar Styles -->
+    <style>
+    .navbar {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%) !important;
+        border-bottom: 2px solid #d4af37 !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    
+    .navbar-brand {
+        font-family: 'Playfair Display', serif !important;
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    .navbar-nav .nav-link {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 500 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        transition: all 0.3s ease !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        color: #d4af37 !important;
+        transform: translateY(-1px);
+    }
+    
+    .navbar-toggler {
+        border-color: #d4af37 !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25) !important;
+    }
+    
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23d4af37' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+    
+    .btn-warning {
+        background: linear-gradient(135deg, #d4af37, #b8941f) !important;
+        border: none !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .btn-warning:hover {
+        background: linear-gradient(135deg, #e5c453, #c7a520) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+    
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            background: rgba(0,0,0,0.95) !important;
+            padding: 1rem !important;
+            border-radius: 0 0 10px 10px;
+            margin-top: 0.5rem;
+        }
+        
+        .navbar-nav {
+            text-align: center !important;
+        }
+        
+        .navbar-nav .nav-item {
+            margin: 0.25rem 0;
+        }
+        
+        /* Mobile navbar specific fixes */
+        .navbar {
+            min-height: 70px !important;
+            padding: 10px 0 !important;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%) !important;
+            border-bottom: 2px solid #fff !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem !important;
+            padding: 0 !important;
+        }
+        
+        .navbar-toggler {
+            padding: 8px 12px !important;
+            font-size: 1.2rem !important;
+        }
+        
+        .navbar-toggler:hover {
+            background-color: rgba(0,0,0,0.1) !important;
+            transform: scale(1.05);
+        }
+        
+        .navbar-nav.mx-auto {
+            margin: 0 !important;
+            text-align: left !important;
+        }
+        
+        .navbar-nav .nav-link {
+            padding: 12px 20px !important;
+            text-align: left !important;
+            font-size: 1rem !important;
+        }
+        
+        .navbar-nav.d-flex {
+            justify-content: flex-start !important;
+            margin-top: 1rem !important;
+            gap: 1rem !important;
+        }
+        
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="padding-top: 76px;">
+    <!-- Bootstrap Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid px-3 px-lg-4">
+            <!-- Brand -->
+            <a class="navbar-brand fw-bold text-warning" href="{% url 'home' %}">
+                VICTNOW
+            </a>
+            
+            <!-- Mobile toggle button -->
+            <button class="navbar-toggler border-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Navigation links -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/collection/">COLLECTION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/corporate-gifting/">CORPORATE GIFTING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/about/">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/reviews/">REVIEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/contact/">CONTACT</a>
+                    </li>
+                </ul>
+                
+                <!-- Right side elements -->
+                <div class="navbar-nav d-flex flex-row align-items-center">
+                    <!-- Cart icon -->
+                    <div class="nav-item">
+                        <a class="nav-link text-warning position-relative" href="#" onclick="goToCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+                        </a>
+                    </div>
+                    
+                    <!-- User auth -->
+                    <div class="nav-item">
+                        <!-- Logged out state -->
+                        <a href="#" class="nav-link text-warning" id="authLink" style="display: block;" onclick="handleAuthClick(event)">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        
+                        <!-- Logged in state -->
+                        <div class="dropdown" id="userDropdown" style="display: none;">
+                            <a class="nav-link text-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i>
+                                <span id="userName" class="ms-1"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); border: 1px solid #d4af37; border-radius: 10px; padding: 10px;">
+                                <li>
+                                    <a class="dropdown-item text-warning" href="#" onclick="goToMyOrders()" style="padding: 8px 15px; border-radius: 5px; transition: all 0.3s ease;">
+                                        <i class="fas fa-shopping-bag me-2"></i> My Orders
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider" style="border-color: #d4af37;"></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="#" onclick="logout()" style="padding: 8px 15px; border-radius: 5px; transition: all 0.3s ease;">
+                                        <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Shop button -->
+                    <div class="nav-item ms-2">
+                        <a href="{% url 'collection' %}" class="btn btn-warning btn-sm text-dark fw-bold">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <h3>VICTNOW</h3>
+                    <div class="logo-line"></div>
+                </div>
+                <p class="footer-tagline">Luxury Fragrances Crafted with Excellence</p>
+                <p class="footer-address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Venue Plaza, Yewalewadi<br>
+                    <i class="fas fa-phone"></i> +91 8055854596<br>
+                    <i class="fas fa-envelope"></i> victnowreach@gmail.com
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="{% url 'collection' %}"><i class="fas fa-chevron-right"></i> Collection</a></li>
+                    <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="{% url 'contact' %}"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/corporate-gifting/"><i class="fas fa-chevron-right"></i> Corporate Gifting</a></li>
+                    <li><a href="/reviews/"><i class="fas fa-chevron-right"></i> Customer Reviews</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Track Order</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Shipping Info</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Returns & Exchanges</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to receive exclusive offers, new product launches, and fragrance insights</p>
+                <form class="newsletter-form" action="{% url 'newsletter' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="subscribe-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="payment-methods">
+                    <p>We Accept:</p>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="copyright">&copy; 2026 VICTNOW. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    if (navMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                        mobileMenuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close menu when clicking on a link
+                const menuLinks = navMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
+        
+        // Cart functionality
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Update cart count display
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = totalItems;
+                // Show/hide cart count based on items
+                cartCountElement.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        function addToCart(productId, productName, productPrice, productImage = null) {
+            console.log('Adding to cart:', { productId, productName, productPrice, productImage });
+            
+            // Get existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if product already exists in cart
+            const existingItemIndex = cart.findIndex(item => item.id == productId);
+            
+            if (existingItemIndex > -1) {
+                // Update quantity if item exists
+                cart[existingItemIndex].quantity += 1;
+                showNotification(`${productName} quantity updated in cart!`, 'success');
+            } else {
+                // Add new item to cart
+                const newItem = {
+                    id: productId,
+                    name: productName,
+                    price: parseFloat(productPrice),
+                    quantity: 1,
+                    image: productImage
+                };
+                cart.push(newItem);
+                showNotification(`${productName} added to cart!`, 'success');
+            }
+            
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count display
+            updateCartCount();
+            
+            // Add a small animation to cart icon
+            const cartIcon = document.querySelector('.cart-icon');
+            if (cartIcon) {
+                cartIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cartIcon.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }
+
+        function goToCart() {
+            console.log('goToCart() function called');
+            try {
+                // Try Django URL first, fallback to hardcoded path
+                var cartUrl = '{% url "cart" %}';
+                if (cartUrl.includes('{%')) {
+                    // Django template not rendered, use fallback
+                    cartUrl = '/cart/';
+                }
+                console.log('Redirecting to:', cartUrl);
+                window.location.href = cartUrl;
+            } catch (error) {
+                console.error('Error in goToCart:', error);
+                // Fallback to hardcoded URL
+                window.location.href = '/cart/';
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #4caf50, #45a049)' : 'linear-gradient(135deg, #2196f3, #1976d2)'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-weight: 600;
+                font-size: 14px;
+                animation: slideInRight 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing cart functionality...');
+            
+            // Update cart count on page load
+            updateCartCount();
+            
+            // Add event listeners to all "Add to Cart" buttons
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            console.log('Found Add to Cart buttons:', addToCartButtons.length);
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get product data from button attributes
+                    const productId = this.getAttribute('data-product-id');
+                    const productName = this.getAttribute('data-product-name');
+                    const productPrice = this.getAttribute('data-product-price');
+                    const productImage = this.getAttribute('data-product-image');
+                    
+                    console.log('Add to Cart clicked:', { productId, productName, productPrice, productImage });
+                    
+                    // Add to cart
+                    addToCart(productId, productName, productPrice, productImage);
+                    
+                    // Add button animation
+                    this.style.transform = 'scale(0.95)';
+                    this.innerHTML = '<i class="fas fa-check" style="margin-right: 8px;"></i> Added!';
+                    this.style.background = 'linear-gradient(135deg, #4caf50, #45a049)';
+                    
+                    // Reset button after 1.5 seconds
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        this.innerHTML = '<i class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Add to Cart';
+                        this.style.background = '';
+                    }, 1500);
+                });
+                
+                // Add hover effects
+                button.addEventListener('mouseenter', function() {
+                    if (!this.textContent.includes('Added')) {
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.4)';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    if (!this.textContent.includes('Added')) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '';
+                    }
+                });
+            });
+        });
+
+        // Add notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // User Authentication Functions
+        function checkAuthStatus() {
+            console.log('=== CHECKING AUTH STATUS ===');
+            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const authLink = document.getElementById('authLink');
+            const userDropdown = document.getElementById('userDropdown');
+            const userName = document.getElementById('userName');
+            
+            console.log('Current user:', currentUser);
+            console.log('Auth link element:', authLink);
+            console.log('User dropdown element:', userDropdown);
+            console.log('User name element:', userName);
+            
+            if (currentUser && authLink && userDropdown && userName) {
+                // User is logged in
+                console.log('User is logged in:', currentUser.name);
+                authLink.style.display = 'none';
+                userDropdown.style.display = 'block';
+                userName.textContent = currentUser.name || 'User';
+                
+                // Force visibility
+                userDropdown.style.visibility = 'visible';
+                userDropdown.style.opacity = '1';
+                
+                console.log('Updated navbar to show logged in user');
+            } else {
+                // User is logged out
+                console.log('User is logged out');
+                if (authLink) {
+                    authLink.style.display = 'block';
+                    authLink.style.visibility = 'visible';
+                    authLink.style.opacity = '1';
+                }
+                if (userDropdown) {
+                    userDropdown.style.display = 'none';
+                    userDropdown.style.visibility = 'hidden';
+                    userDropdown.style.opacity = '0';
+                }
+            }
+        }
+        
+        function logout() {
+            // Remove user session
+            localStorage.removeItem('currentUser');
+            
+            // Show notification
+            if (typeof showNotification === 'function') {
+                showNotification('Logged out successfully!', 'info');
+            }
+            
+            // Update UI
+            checkAuthStatus();
+            
+            // Redirect to home page after 1 second
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000);
+        }
+        
+        function goToMyOrders() {
+            // Redirect to orders page
+            window.location.href = '/orders/';
+        }
+        
+        // Handle auth click - check if user is logged in and show appropriate options
+        function handleAuthClick(event) {
+            event.preventDefault();
+            
+            console.log('=== AUTH LINK CLICKED ===');
+            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            console.log('Current user:', currentUser);
+            
+            if (currentUser) {
+                // User is logged in - show dropdown
+                console.log('User is logged in, showing dropdown');
+                checkAuthStatus();
+                
+                // Show the dropdown manually
+                const userDropdown = document.getElementById('userDropdown');
+                if (userDropdown) {
+                    userDropdown.style.display = 'block';
+                    userDropdown.style.visibility = 'visible';
+                    userDropdown.style.opacity = '1';
+                    
+                    // Hide the auth link
+                    const authLink = document.getElementById('authLink');
+                    if (authLink) {
+                        authLink.style.display = 'none';
+                    }
+                    
+                    // Set user name
+                    const userName = document.getElementById('userName');
+                    if (userName) {
+                        userName.textContent = currentUser.name || 'User';
+                    }
+                    
+                    // Trigger dropdown
+                    const dropdownToggle = userDropdown.querySelector('.dropdown-toggle');
+                    if (dropdownToggle) {
+                        dropdownToggle.click();
+                    }
+                }
+            } else {
+                // User is not logged in - redirect to login
+                console.log('User not logged in, redirecting to login');
+                window.location.href = '/login/';
+            }
+        }
+        
+        // Manual check function for testing
+        function manualAuthCheck() {
+            console.log('=== MANUAL AUTH CHECK ===');
+            checkAuthStatus();
+        }
+        
+        // Initialize cart count and auth status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== PAGE LOADED ===');
+            if (typeof updateCartCount === 'function') {
+                updateCartCount();
+            }
+            checkAuthStatus();
+        });
+        
+        // Also check auth status when window is fully loaded (backup)
+        window.addEventListener('load', function() {
+            console.log('=== WINDOW FULLY LOADED ===');
+            checkAuthStatus();
+        });
+    </script>
+</body>
+</html>
