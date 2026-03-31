@@ -275,12 +275,12 @@
             console.log('Opening Razorpay directly with ₹2,499');
             
             const options = {
-                key: 'rzp_live_SWbTlXM1BhD6RZ',
+                key: '{{ RAZORPAY_KEY }}',
                 amount: 249900, // ₹2,499 in paise - CORRECT AMOUNT
                 currency: 'INR',
                 name: 'VICTNOW Trial Pack',
                 description: 'VICTNOW MUSE, VICTNOW NEXUS, VICTNOW FORGE - 5ML each',
-                image: '/static/images/perfume.png',
+                image: '{% static "images/product.png" %}',
                 handler: function (response) {
                     console.log('Payment successful with amount 249900:', response);
                     alert('Payment successful! Amount: ₹2,499, Payment ID: ' + response.razorpay_payment_id);
@@ -342,12 +342,12 @@
             
             // Direct Razorpay payment
             const options = {
-                key: 'rzp_live_SWbTlXM1BhD6RZ', // Your live Razorpay key
+                key: '{{ RAZORPAY_KEY }}', // Your live Razorpay key
                 amount: 249900, // ₹2,499 in paise
                 currency: 'INR',
                 name: 'VICTNOW Trial Pack',
                 description: 'VICTNOW MUSE, VICTNOW NEXUS, VICTNOW FORGE - 5ML each',
-                image: '/static/images/perfume.png',
+                image: '{% static "images/product.png" %}',
                 handler: function (response) {
                     console.log('Payment successful with amount 249900:', response);
                     window.location.href = '/payment-success/?payment_id=' + response.razorpay_payment_id;
@@ -381,12 +381,12 @@
         
         function initiateRazorpayPayment(orderData, orderId) {
             const options = {
-                key: 'rzp_live_SWbTlXM1BhD6RZ', // Your live Razorpay key // Your test API key
+                key: '{{ RAZORPAY_KEY }}', // Your live Razorpay key // Your test API key
                 amount: 249900, // ₹2,499 in paise
                 currency: orderData.currency,
-                name: 'VICTNOW Trial Pack',
+                name: 'VICTNOW - Trail Pack Order',
                 description: orderData.product,
-                image: 'https://example.com/your-logo.png', // Add your logo URL
+                image: '{% static "images/product.png" %}', // Add your logo URL
                 prefill: {
                     name: orderData.name,
                     email: orderData.email,
@@ -479,6 +479,7 @@
                     <div class="razorpay-body">
                         <div class="payment-methods">
                             <button class="payment-method active" onclick="selectPaymentMethod('razorpay')">
+                                <img src="{% static "images/product.png" %}" alt="Razorpay">
                                 <i class="fas fa-mobile-alt"></i>
                                 <span>Razorpay</span>
                                 <small>UPI, Cards, NetBanking</small>

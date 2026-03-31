@@ -9,7 +9,7 @@
     <div class="product-container">
         <!-- Product Image -->
         <div class="product-image">
-            <img src="/static/images/product.png" alt="{{ product.name }}">
+            <img src="{% static "images/product.png" %}" alt="{{ product.name }}">
         </div>
         
         <!-- Product Details -->
@@ -58,7 +58,7 @@ body {
 
 .product-section {
     padding: 80px;
-    background-image: url('/static/images/product.png');
+    background-image: url('{% static "images/product.png" %}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -172,7 +172,7 @@ function addToCart() {
     const productId = '{{ product.id }}';
     const productName = '{{ product.name|escapejs }}';
     const productPrice = '{{ product.price }}';
-    const productImage = '{% if product.image %}{{ product.image.url }}{% else %}/static/images/default-perfume.jpg{% endif %}';
+    const productImage = '{% if product.image %}{{ product.image.url }}{% else %}{% static "images/default-perfume.jpg" %}{% endif %}';
     
     // Get existing cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];

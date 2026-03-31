@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle image error - use existing perfume.png as fallback
         img.addEventListener('error', function() {
             console.log('Image failed to load:', this.src);
-            this.src = '/static/images/perfume.png';
+            this.src = '{% static "images/perfume.png" %}';
             // Set opacity after fallback loads
             setTimeout(() => {
                 this.style.opacity = '1';
